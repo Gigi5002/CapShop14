@@ -1,17 +1,15 @@
 from datetime import timedelta
 from pathlib import Path
+import os
+from dotenv import load_dotenv
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+load_dotenv()
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-5a02%5+e9__d5nhj%&-0tn1!5!k82$rwq+3k=o%g=-htsy-d(n'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -76,14 +74,24 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # # Database
 # # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 #
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'capshop14',  # Имя вашей базы данных
+#         'USER': 'capshop14user',      # Имя вашего пользователя
+#         'PASSWORD': 'password',  # Ваш пароль
+#         'HOST': 'localhost',   # Хост, на котором работает PostgreSQL
+#         'PORT': '5432',            # Порт (по умолчанию 5432)
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'capshop14',  # Имя вашей базы данных
-        'USER': 'capshop14user',      # Имя вашего пользователя
-        'PASSWORD': 'password',  # Ваш пароль
-        'HOST': 'localhost',   # Хост, на котором работает PostgreSQL
-        'PORT': '5432',            # Порт (по умолчанию 5432)
+        'ENGINE': os.getenv('DB_ENGINE'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
 
