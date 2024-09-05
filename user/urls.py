@@ -14,7 +14,7 @@ urlpatterns = [
     path('token/verify/', TokenVerifyView.as_view(), name='token_verify'),
 
     # Not Auth
-    path('profile/', views.ProfileListView.as_view())
+    path('profile/', views.UserProfileView.as_view())
 ]
 
 # {

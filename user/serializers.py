@@ -29,17 +29,23 @@ class UserListSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ProfileListSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = MyUser
-        fields = ('id', 'username', 'cover', 'email', 'phone_number', 'address')
-
-
-class ProfileUpdateSerializer(serializers.ModelSerializer):
+class UserProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MyUser
-        fields = ('username', 'cover', 'email', 'phone_number', 'address')
+        fields = ('id', 'cover', 'username', 'phone_number', 'email', 'address')
 
+# class ProfileListSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = MyUser
+#         fields = ('id', 'username', 'cover', 'email', 'phone_number', 'address')
+#
+#
+# class ProfileUpdateSerializer(serializers.ModelSerializer):
+#
+#     class Meta:
+#         model = MyUser
+#         fields = ('username', 'cover', 'email', 'phone_number', 'address')
+#
 
 

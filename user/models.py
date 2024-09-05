@@ -4,10 +4,6 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 class MyUserManager(BaseUserManager):
     def create_user(self, phone_number, username, email, password=None):
-        """
-        Creates and saves a User with the given email, date of
-        birth and password.
-        """
 
         user = self.model(
             phone_number=phone_number,
@@ -20,10 +16,7 @@ class MyUserManager(BaseUserManager):
         return user
 
     def create_superuser(self, phone_number, username, email, password=None):
-        """
-        Creates and saves a superuser with the given email, date of
-        birth and password.
-        """
+
         user = self.create_user(
             phone_number=phone_number,
             username=username,
